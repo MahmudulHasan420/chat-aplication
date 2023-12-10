@@ -5,10 +5,11 @@ import TextField from '@mui/material/TextField';
 import { alpha, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
-import { getAuth, createUserWithEmailAndPassword ,signInWithPopup, GoogleAuthProvider , sendEmailVerification } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword ,signInWithPopup, GoogleAuthProvider , sendEmailVerification ,updateProfile  } from "firebase/auth";
 import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { getDatabase, ref, set } from "firebase/database";
 
 const Frominput = styled(TextField)({
     width: '75%',
@@ -35,6 +36,7 @@ fontFamily: [
 
 
 const Registration = () => {
+  const db = getDatabase();
 
     let navigate = useNavigate()
   const auth = getAuth();
@@ -66,12 +68,27 @@ const Registration = () => {
     setLoader(false)
     createUserWithEmailAndPassword(auth, reg.email, reg.password)
     .then((userCredential) => {
-     
-      sendEmailVerification(auth.currentUser)
-  .then(() => {
+
+      set(ref(db, 'user/' +  userCredential.user.uid ),   {
+        username: reg.fullName,
+        email: userCredential.user.email,
+        profile_picture : "https://firebasestorage.googleapis.com/v0/b/chat-application-aff71.appspot.com/o/J23-%20107047%20%20Apr---%2031%20---23%20jpg-%20(1)%20(1).jpg?alt=media&token=e468d9e3-2c5e-4de1-bc24-2cfb066b0880"
+      });
+
+      updateProfile(auth.currentUser, {
+        displayName: reg.fullName , photoURL: "https://example.com/jane-q-user/profile.jpg"
+      }).then(() => {
+          //     sendEmailVerification(auth.currentUser)
+  // .then(() => {
+
+
       setLoader(true)
       navigate("/login")
-  });
+      
+  // });
+      })
+     
+
      
     })
 

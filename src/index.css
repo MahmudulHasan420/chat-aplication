@@ -48,12 +48,21 @@
   .sidebar{
     height: 95vh;
     background: #5F35F5;
-    width: 125px;
+    width: 185px;
     margin: 2.5vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 2;
+  }
+  .profileName{
+    font-size: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+
   }
   .sidebar img {
     width: 100px;
@@ -128,8 +137,27 @@
     padding: 14px 0;
   }
 
+  .list .group:last-child{
+    border-bottom: 0;
+  }
+
   .list .group img{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+  }
+  .previewBox{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .img-preview{
+    width: 100px;
+    height: 100px;
+  }
+
+  .filechose{
+    display: block;
   }

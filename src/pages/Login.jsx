@@ -65,18 +65,18 @@ let handleclick = ()=>{
   setLoader(false)
   signInWithEmailAndPassword(auth, reg.email, reg.password)
   .then((userCredential) => {
-   console.log(userCredential);
+   
    setLoader(true)
    navigate("/page/home")
    dispatch(userinfo(userCredential.user))
-   localStorage.setItem(JSON.stringify("user" ,userCredential.user))
+   localStorage.setItem("user",JSON.stringify(userCredential.user))
+   console.log(userCredential);
   })
 
   .catch((error) => {
     const errorCode = error.code;
     setLoader(true)
 
-    console.log(errorCode)
     if(errorCode.includes("email")){
       setError({...error , emailerror : "Email allready in used"})
 

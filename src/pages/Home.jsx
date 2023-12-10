@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userinfo } from './Slices/userSlice';
 import Grid from '@mui/material/Grid';
-import profile from '../assets/profile.png'
+import Grouplist from '../components/Grouplist';
+import FriendList from '../components/FriendList';
+import UserList from '../components/UserList';
+import FriendRequest from '../components/FriendRequest';
+import MyGroup from '../components/MyGroup';
+import { BlockUser } from '../components/BlockUser';
+
 
 const Home = () => {
   const auth = getAuth();
@@ -31,413 +37,31 @@ const Home = () => {
   // } ,[])
   return (
 
+    <>
     <Grid container spacing={2}>
     <Grid item xs={4}>
     
-      <div className='list'>
-      <h1>Groups List</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-
-
-      </div>
+      <Grouplist/>
       
     </Grid>
     <Grid item xs={4}>
-      <div className='list'>
-      <h1>Friends</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Raghav</h3>
-        
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        
-
-      </div>
+      <FriendList/>
     </Grid>
     <Grid item xs={4}>
-    <div className='list'>
-      <h1>Groups List</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        
-
-      </div>
+    <UserList/>
     </Grid>
     <Grid item xs={4}>
-    <div className='list'>
-      <h1>Groups List</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        
-
-      </div>
+    <FriendRequest/>
     </Grid>
     <Grid item xs={4}>
-    <div className='list'>
-      <h1>Groups List</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        
-
-      </div>
+    <MyGroup/>
     </Grid>
     <Grid item xs={4}>
-    <div className='list'>
-      <h1>Groups List</h1> 
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        <div className='group'>
-        <img src={profile} alt=" pic" />
-        <h3>Friends Reunion</h3>
-        <Button variant="contained">join</Button>
-        <h3></h3>
-        </div>
-        
-
-      </div>
+    <BlockUser/>
     </Grid>
   </Grid>
-    // <Button onClick={handleLogout} variant="contained">Log out</Button>
+    <Button onClick={handleLogout} variant="contained">Log out</Button>
+    </>
   )
 }
 
