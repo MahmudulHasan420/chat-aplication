@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { getAuth, createUserWithEmailAndPassword ,signInWithPopup, GoogleAuthProvider , sendEmailVerification ,updateProfile  } from "firebase/auth";
 import { RotatingLines } from 'react-loader-spinner'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getDatabase, ref, set } from "firebase/database";
 
@@ -208,8 +208,9 @@ const Registration = () => {
       </div>
       <Mybutton onClick={handleclick} variant="contained">Sign up</Mybutton>
       <Mybutton onClick={handlegoogle} variant="contained"> Google Sign up</Mybutton>
-      <p className='regsinin'>Already  have an account ? <span>
-      Sign In</span></p>
+
+      <p className='loginToSingIn'>Already have an account ? <Link to="/login"> <span style={{color:"orange", cursor:"pointer"}}>Sign in</span></Link></p>
+
       </div>
     </Grid>
     <Grid item xs={6}>

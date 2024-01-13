@@ -17,7 +17,6 @@ const Home = () => {
   const auth = getAuth();
 
   let userinformation = useSelector(state=>state.activeUser.value)
-  console.log(userinformation);
    let dispatch =useDispatch()
 
   let navigate = useNavigate()

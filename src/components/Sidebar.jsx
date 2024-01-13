@@ -13,11 +13,9 @@ import Modal from '@mui/material/Modal';
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import { getStorage, ref, uploadString , getDownloadURL } from "firebase/storage";
+import { getDatabase, ref as dref, set } from "firebase/database";
 import { getAuth,updateProfile  } from "firebase/auth";
-import { userinfo } from '../pages/Slices/userSlice';
-
-// const defaultSrc =
-//   "https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg";
+import { userinfo } from '../pages/Slices/userSlice'; 
 
 const style = {
   position: 'absolute',
@@ -33,11 +31,7 @@ const style = {
 
 const Sidebar = () => {
 
-  let userinfor = useSelector(state=>state.activeUser.value)
-  let  [pathnam , setPathnam] = useState()
-  let dispatch = useDispatch()
-
- 
+  const db = getDatabase();
   const storage = getStorage();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -46,6 +40,11 @@ const Sidebar = () => {
   const [cropData, setCropData] = useState("#");
   const cropperRef = createRef();
   const auth = getAuth();
+
+
+  let userinfor = useSelector(state=>state.activeUser.value)
+  let  [pathnam , setPathnam] = useState()
+  let dispatch = useDispatch()
 
   let handleLink =()=>{
   setPathnam(window.location.pathname)
@@ -78,9 +77,16 @@ const getCropData = () => {
         updateProfile(auth.currentUser, {
             photoURL: downloadURL
         }).then(()=>{
-           localStorage.setItem("user", JSON.stringify({...userinfor, photoURL:downloadURL}))
+          set(dref(db, 'user/' + userinfor.uid), {
+            username: userinfor.displayName,
+            email: userinfor.email,
+            profile_picture : downloadURL
+          }).then(()=>{
+            localStorage.setItem("user", JSON.stringify({...userinfor, photoURL:downloadURL}))
             dispatch(userinfo({...userinfor , photoURL:downloadURL}))
             setImage("")
+          })
+           
         })
       });
     });

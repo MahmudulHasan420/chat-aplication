@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
 import { getAuth, signInWithEmailAndPassword   } from "firebase/auth";
 import { RotatingLines } from 'react-loader-spinner'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userinfo } from './Slices/userSlice';
 
@@ -153,6 +153,7 @@ let handleclick = ()=>{
     }
       </div>
       <Mybutton onClick={handleclick} variant="contained">Sign in</Mybutton>
+      <p className='loginToSingIn'>Already have an account ? <Link to="/"> <span style={{color:"orange", cursor:"pointer"}}>Sign Up</span></Link></p>
       </div>
     </Grid>
     <Grid item xs={6}>
@@ -172,6 +173,7 @@ let handleclick = ()=>{
 />
 
     }
+    
     </>
   )
 }
